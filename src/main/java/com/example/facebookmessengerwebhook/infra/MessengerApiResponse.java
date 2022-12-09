@@ -17,9 +17,7 @@ public class MessengerApiResponse {
     @Builder
     @ToString
     public static class send {
-        @JsonProperty("recipient_id")
-        private final Long recipient;
-        @JsonProperty("message_id")
-        private final String messageId;
+        private final Long recipient_id;
+        private final String message_id;
     }
 }

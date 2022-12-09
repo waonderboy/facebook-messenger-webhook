@@ -34,11 +34,6 @@ public class IndexController {
 
         MessengerApiResponse.send response = messengerApiCaller.sendMessage(ACCESS_TOKEN, request);
 
-        log.info("messageId={}", response.getMessageId());
-        log.info("msg={}",request.toString());
-
-
-
         return new ResponseEntity<>(response, HttpStatus.ACCEPTED);
     }
 }
