@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.*;
 //https://ef6e-220-78-224-165.jp.ngrok.io/
 @Slf4j
 @RestController
+@RequestMapping("/webhook")
 public class WebHookController {
 
     @Value("${FACEBOOK_PAGE_ACCESS_TOKEN}")
     private String ACCESS_TOKEN;
 
-    @PostMapping("/webhook")
+    @PostMapping
     public ResponseEntity<Object> webhook(@RequestBody String requestBody) {
         log.info("messageBody={}", requestBody);
 
@@ -23,7 +24,7 @@ public class WebHookController {
         return new ResponseEntity<>("EVENT_RECEIVED", HttpStatus.OK);
     }
 
-    @GetMapping("/webhook")
+    @GetMapping
     public ResponseEntity<Object> webhook(@RequestParam(name = "hub.verify_token") String token,
                                           @RequestParam(name = "hub.challenge") String challenge,
                                           @RequestParam(name = "hub.mode") String mode) {
@@ -45,5 +46,7 @@ public class WebHookController {
         }
         return response;
     }
+
+
 
 }

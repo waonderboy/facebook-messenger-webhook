@@ -2,3 +2,7 @@ server:
   port: 8454
 
 
+api:
+  facebook:
+    base-url:
+      https://graph.facebook.com/
